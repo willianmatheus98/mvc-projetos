@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Sistema de Projetos</title>
+
+   <th:block th:include="fragments/cabecalho :: head"></th:block>
+
+</head>
+<body>
+
+
+  <th:block th:include="fragments/menu :: menu"></th:block>
+  
+  	<div class="container">
+		
+	    <h2>Projeto Atual</h2>
+	    <ul class="list-group">
+	        <li class="list-group-item"><label>Nome do Projeto:</label>
+	        	<span th:text="${projeto1.nome}"> Nome</span></li>
+	        <li class="list-group-item"><label>Patrocinador:</label>
+	        	<span th:text="${projeto1.patrocinador}">Patrocinador</span></li>
+	        <li class="list-group-item"><label>Descrição:</label><br/>
+	        	<span th:text="${projeto1.descricao}">Descrição</span></li>
+	    </ul>
+		
+	</div>
+  
+		
+
+</body>
+</html>

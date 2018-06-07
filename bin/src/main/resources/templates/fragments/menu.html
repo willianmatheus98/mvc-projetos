@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment="menu">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+				<a class="navbar-brand" href="#">Gerenciamento de Projetos</a>
+            </div>
+            <ul class="nav navbar-nav">
+                  <li><a href="#" th:href="@{/}">Home</a></li>
+                  <li class="dropdown">
+					<a href="#" th:href="@{/}" class="dropdown-toggle" data-toggle="dropdown" 
+						role="button" aria-expanded="false">Projetos
+	  				<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a th:href="@{/projeto/adicionar}">Adicionar</a></li>
+						<li><a th:href="@{/projeto/buscar}">Buscar</a></li>
+					</ul>
+                  </li>
+                  <li class="dropdown">
+					<a href="#" th:href="@{/}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Recursos
+						<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#" th:href="@{/}">Adicionar</a></li>
+						<li><a href="#" th:href="@{/}">Buscar</a></li>
+					</ul>
+                  </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
