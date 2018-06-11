@@ -4,34 +4,38 @@
 
 <title>Sistema de Projetos</title>
 
-   <th:block th:include="fragments/cabecalho :: head"></th:block>
+<th:block th:include="fragments/cabecalho :: head"></th:block>
 
 </head>
 <body>
 
 
-  <th:block th:include="fragments/menu :: menu"></th:block>
-  
-  	<div class="container">
-		
-	    <h2>Projetos</h2>
-	    <table class="table table-hover">
-		<tbody>
-			<tr>
-				<th>Nome</th><th>Patrocinador</th><th>Descrição</th>
-			</tr>
-			<tr th:each="projeto : ${projetos}">
-				<td th:text="${projeto.nome}">Nome</td>
-				<td th:text="${projeto.patrocinador}">Patrocinador</td>
-				<td th:text="${projeto.descricao}">Descrição</td>
-			</tr>	
-		</tbody>
-	    </table>
+	<th:block th:include="fragments/menu :: menu"></th:block>
 
-		
+	<div class="container">
+
+		<h2>Projetos</h2>
+		<table class="table table-hover">
+			<tbody>
+				<tr>
+					<th>Nome</th>
+					<th>Patrocinador</th>
+					<th>Descrição</th>
+				</tr>
+				<tr th:each="projeto : ${projetos}">
+					<td><a href="projeto.html"
+						th:href="@{|/projeto/${projeto.idProjeto}|}"
+						th:text="|${projeto.nome}|">Nome</a></td>
+					<td th:text="${projeto.patrocinador}">Patrocinador</td>
+					<td th:text="${projeto.descricao}">Descrição</td>
+				</tr>
+			</tbody>
+		</table>
+
+
 	</div>
-  
-		
+
+
 
 </body>
 </html>

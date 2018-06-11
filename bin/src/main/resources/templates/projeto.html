@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Sistema de Projetos</title>
+
+<th:block th:include="fragments/cabecalho :: head"></th:block>
+
+</head>
+<body>
+
+
+	<th:block th:include="fragments/menu :: menu"></th:block>
+
+	<div class="container">
+		<h2>
+			Detalhamento do projeto: <span th:text="${projeto.nome}">nomeprojeto</span>
+		</h2>
+		<div class="row">
+			<div class="form-group">
+				<label for="nomeProjeto">Nome</label> <span
+					th:text="${projeto.nome}">Nome</span>
+			</div>
+			<div class="form-group">
+				<label for="tipoProjeto">Tipo</label> <span
+					th:text="${projeto.tipo}">Tipo</span>
+			</div>
+			<div class="form-group">
+				<label for="patrocinador">Patrocinador</label> <span
+					th:text="${projeto.patrocinador}">Patrocinador</span>
+			</div>
+			<div class="form-group">
+				<label for="fundos">Fundos Autorizados</label> <span
+					th:text="${projeto.fundosAutorizados}">Fundos</span>
+			</div>
+			<div class="form-group">
+				<label for="horas">Horas Autorizadas</label> <span
+					th:text="${projeto.horasAutorizadas}">Horas</span>
+			</div>
+			<div class="form-group">
+				<label for="descricaoProjeto">Descrição</label> <span
+					th:text="${projeto.descricao}">Descrição</span>
+			</div>
+			<div class="form-group">
+				<label for="especial">Especial</label> <span
+					th:text="${projeto.especial}">Especial</span>
+			</div>
+		</div>
+		<p></p>
+		<a th:href="@{../projeto/buscar}">Retornar para a lista de
+			projetos</a>
+	</div>
+
+
+
+
+</body>
+</html>

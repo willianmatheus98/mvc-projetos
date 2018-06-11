@@ -17,30 +17,14 @@ public class ProjetosService {
 	private ProjetosRepository repo;
 
 	private List<Projeto> projetos = new LinkedList<>();
-
-	public ProjetosService() {
-		Projeto projetoJava = this.criarProjeto(1L, "Projeto Java", "Este é um projeto Java");
-		Projeto projetoJavascript = this.criarProjeto(2L, "Projeto JavaScript", "Este é um projeto JavaScript");
-		Projeto projetoHTML = this.criarProjeto(3L, "Projeto HTML", "Este é um projeto HTML");
-		this.projetos.addAll(Arrays.asList(new Projeto[] { projetoJava, projetoJavascript, projetoHTML }));
+	
+	public void salvar(Projeto p) {
+		System.out.println("GRAVANDO O PROJETO " + p.getNome());
+		this.repo.save(p);
 	}
 
 	public List<Projeto> buscarTodos() {
 		return this.repo.findAll();
-	}
-
-	private Projeto criarProjeto(Long idProjeto, String titulo, String descricao) {
-		Projeto projeto = new Projeto();
-		projeto.setNome(titulo);
-		// projeto.setPatrocinador(“Patrocinador de projetos”);
-		// projeto.setFundosAutorizados(new BigDecimal("100000"));
-		// projeto.setHorasAutorizadas(new BigDecimal("1000"));
-		projeto.setIdProjeto(idProjeto);
-		projeto.setEspecial(false);
-		projeto.setTipo("multi");
-		projeto.setAno("2015");
-		projeto.setDescricao(descricao);
-		return projeto;
 	}
 
 	public Projeto buscar(Long idProjeto) {

@@ -27,7 +27,19 @@ public class ProjetosController {
 		System.out.println("Invocando o formulário via GET");
 		return "adicionarProjeto";
 	}
-
+	
+	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
+	// Salvar um projeto
+	public String salvarProjeto(Model modelo, @ModelAttribute Projeto projeto) {
+		System.out.println("Invocando o formulário via POST");
+		modelo.addAttribute("msgsucesso", "Projeto adicionado com sucesso!");
+		modelo.addAttribute("sucesso", true);
+		modelo.addAttribute("projeto", new Projeto());
+		this.servico.salvar(projeto);
+		return "adicionarProjeto";
+	}
+	
+	/*
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	// Salvar um projeto
 	public String salvarProjeto(Model modelo, @ModelAttribute Projeto projeto) {
@@ -49,6 +61,7 @@ public class ProjetosController {
 		System.out.println("invocando salvar projeto múltiplos anos e especial");
 		return "adicionarProjeto";
 	}
+	*/
 
 	@RequestMapping(value = "/buscar")
 	public String buscarTodos(Model modelo) {

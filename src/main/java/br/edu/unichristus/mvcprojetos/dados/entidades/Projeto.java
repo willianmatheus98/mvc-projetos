@@ -34,6 +34,7 @@ public class Projeto {
 
 	private String tipo;
 
+	// Getters e Setters
 	public Long getIdProjeto() {
 		return idProjeto;
 	}
@@ -106,6 +107,6 @@ public class Projeto {
 		this.tipo = tipo;
 	}
 
-	// Getters e Setters
+	
 	
 }

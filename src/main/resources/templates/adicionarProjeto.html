@@ -32,14 +32,17 @@
 			</script>
 		</div>
 		<div class="row">
-			<form action="#" th:action="@{/projeto/adicionar}" method="post"
+			<form action="#" th:action="@{/projeto/adicionar}" 
+			  method="post" th:object="${projeto}"
 				class="col-md-8 col-md-offset-2">
 				<div class="form-group">
-					<label for="nomeProjeto">Nome</label> <input type="text"
-						id="nomeProjeto" class="form-control" name="nome" />
+					<label for="nomeProjeto">Nome</label> 
+					<input type="text"
+						id="nomeProjeto" th:field="*{nome}" class="form-control" name="nome" />
 				</div>
 				<div class="form-group">
-					<label for="tipoProjeto">Tipo</label> <select name="tipo"
+					<label for="tipoProjeto">Tipo</label>
+					 <select  name="tipo"
 						class="selectpicker">
 						<option></option>
 						<option value="simples">Ano Único</option>
@@ -52,8 +55,9 @@
 						name="patrocinador" />
 				</div>
 				<div class="form-group">
-					<label for="fundos">Fundos Autorizados</label> <input id="fundos"
-						type="text" class="form-control" name="fundosAutorizados" />
+					<label for="fundos">Fundos Autorizados</label>
+					 <input id="fundos"
+						type="text"  class="form-control" name="fundosAutorizados" />
 				</div>
 				<div class="form-group">
 					<label for="horas">Horas Autorizadas</label> <input id="horas"
@@ -61,11 +65,11 @@
 				</div>
 				<div class="form-group">
 					<label for="nomeProjeto">Descrição</label>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea  class="form-control" rows="3"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="especial">Especial</label> <input id="especial"
-						name="especial" type="checkbox" />
+						name="especial"  type="checkbox" />
 				</div>
 				<button type="submit" class="btn btn-default">Adicionar</button>
 			</form>

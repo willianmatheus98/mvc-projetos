@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Sistema de Projetos</title>
+
+<th:block th:include="fragments/cabecalho :: head"></th:block>
+<script>
+	function exibirAlertaSucesso() {
+		$("#inclusãoAlert").show();
+		window.setTimeout(function() {
+			$("#inclusãoAlert").fadeTo(500, 0).slideUp(500, function() {
+				$(this).remove();
+			});
+		}, 4000);
+	};
+</script>
+</head>
+<body>
+
+
+	<th:block th:include="fragments/menu :: menu"></th:block>
+
+	<div class="container">
+		<div id="inclusãoAlert" style="display: none"
+			class="alert alert-success alertdismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert"
+				arialabel="Close">
+				<span ariahidden="true">&times;</span>
+			</button>
+			<strong th:text="${msgsucesso}">Sucesso</strong>
+		</div>
+		<h1>Novo Recurso</h1>
+		<div th:if="${sucesso}">
+			<script>
+				exibirAlertaSucesso();
+			</script>
+		</div>
+		<form action="#" th:action="@{/recurso/adicionar}"
+			th:object="${recurso}" method="POST" class="col-md-8 col-md-offset-2">
+			<div class="row">
+				<div class="form-group">
+					<label for="nome">Nome</label> <input type="text"
+						th:field="*{nome}" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="tipo">Tipo</label> <select th:field="*{tipo}"
+						class="selectpicker">
+						<option th:each="tipo : ${tipos}" th:value="${tipo}"
+							th:text="${tipo}">Tipos</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="custo">Custo</label> <input type="text"
+						th:field="*{custo}" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label for="indicadores">Indicadores</label>
+					<ul style="list-style-type: none">
+						<li th:each="indicador : ${opcoesCheck}"><input
+							type="checkbox" th:field="*{indicadores}" th:value="${indicador}" />
+							<label th:text="${indicador}">Indicador</label></li>
+					</ul>
+				</div>
+
+				<div class="form-group">
+					<label for="notas">Notas</label>
+					<textarea th:field="*{notas}" class="form-control"></textarea>
+				</div>
+
+
+				<div class="form-group">
+					<label for="unidade">Unidade de Medida</label>
+					<ul style="list-style-type: none">
+						<li th:each="unidade : ${opcoesRadio}"><input type="radio"
+							th:field="*{unidadeMedida}" th:value="${unidade}" /> <label
+							th:text="${unidade}">Unidade de Medida</label></li>
+					</ul>
+				</div>
+				<button type="submit" class="btn btn-default">Adicionar</button>
+			</div>
+		</form>
+	</div>
+
+
+
+</body>
+</html>
